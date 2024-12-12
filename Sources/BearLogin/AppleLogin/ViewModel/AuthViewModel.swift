@@ -8,9 +8,9 @@
 import Foundation
 import Combine
 
-class EventViewModel: ObservableObject {
+class AuthViewModel: ObservableObject {
     
-    @Published var model = AuthModel()
+    @Published var token: String?
     
     private var cancellables = Set<AnyCancellable>()
     private let service: AuthServiceProtocol
@@ -34,6 +34,7 @@ class EventViewModel: ObservableObject {
                 }
             }, receiveValue: { model in
                 debugPrint("model ==== \(String(describing: model.token))")
+                self.token = model.token
             })
             .store(in: &cancellables)
     }
