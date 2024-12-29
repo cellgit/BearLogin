@@ -33,7 +33,7 @@ class AuthViewModel: ObservableObject {
                     debugPrint("error ======= \(error)")
                 }
             }, receiveValue: { model in
-                debugPrint("model ==== \(String(describing: model.token))")
+                debugPrint("model.token ==== \(String(describing: model.token))")
                 self.token = model.token
             })
             .store(in: &cancellables)

@@ -43,7 +43,8 @@ public struct AppleSignInButtonView: View {
             }
         }
         .padding()
-        .onChange(of: viewModel.token) { newValue, oldValue in
+        .onChange(of: viewModel.token) { oldValue, newValue in
+            
             self.token = newValue // 绑定 ViewModel 中的 token 到外部视图的 token
         }
     }
