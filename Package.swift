@@ -16,9 +16,9 @@ let package = Package(
             targets: ["BearLogin"]),
     ],
     dependencies: [
-//        .package(path: "../BearBasic"),
+        .package(path: "../BearBasic"),
 //        .package(url: "https://github.com/cellgit/BearBasic.git", .upToNextMajor(from: "0.0.4")),
-        .package(url: "https://gitee.com/cellgit/BearBasic.git", .upToNextMajor(from: "0.0.9")),
+//        .package(url: "https://gitee.com/cellgit/BearBasic.git", .upToNextMajor(from: "0.0.9")),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

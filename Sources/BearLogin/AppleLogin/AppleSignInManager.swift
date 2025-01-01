@@ -106,29 +106,3 @@ extension AppleSignInManager: ASAuthorizationControllerDelegate, ASAuthorization
         return controller.presentationContextProvider?.presentationAnchor(for: controller) ?? ASPresentationAnchor()
     }
 }
-
-//struct SignInWithAppleButton: View {
-//    @ObservedObject var signInManager = AppleSignInManager.shared
-//    
-//    var body: some View {
-//        VStack {
-//            if signInManager.isSignedIn {
-//                Text("Signed in as: \(signInManager.userInfo?["authorizationCode"] as? String ?? "Unknown")")
-//                Button("Sign Out") {
-//                    signInManager.logOut()
-//                }
-//            } else {
-//                Button("Sign in with Apple") {
-//                    signInManager.performAppleSignIn { info, error in
-//                        if let error = error {
-//                            print("Sign-in error: \(error)")
-//                        } else {
-//                            print("Sign-in success: \(info ?? [:])")
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        .padding()
-//    }
-//}
