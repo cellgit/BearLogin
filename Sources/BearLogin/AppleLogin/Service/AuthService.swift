@@ -11,17 +11,18 @@ import Moya
 import CombineMoya
 import BearBasic
 
-protocol AuthServiceProtocol {
+public protocol AuthServiceProtocol {
     /// 苹果登录
     func fetchAuthApple(with authorizationCode: String) -> AnyPublisher<ApiResponse<AuthModel>, MoyaError>
-    
 }
 
-class AuthService: AuthServiceProtocol {
+public class AuthService: AuthServiceProtocol {
+    
+    public init() {}
     
     private let provider = MoyaProvider<AuthTarget>(plugins: plugins_bear)
     
-    func fetchAuthApple(with authorizationCode: String) -> AnyPublisher<ApiResponse<AuthModel>, MoyaError> {
+    public func fetchAuthApple(with authorizationCode: String) -> AnyPublisher<ApiResponse<AuthModel>, MoyaError> {
         let target = AuthTarget.authApple(authorizationCode: authorizationCode)
         return provider.requestPublisher(target)
             .mapResult()

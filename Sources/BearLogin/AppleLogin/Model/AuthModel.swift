@@ -8,7 +8,7 @@
 import Foundation
 
 // 苹果登录
-struct AuthModel: Decodable, Hashable, Identifiable {
+public struct AuthModel: Decodable, Hashable, Identifiable {
     var token: String?
-    var id: String? = UUID().uuidString
+    public var id: String? = UUID().uuidString
 }

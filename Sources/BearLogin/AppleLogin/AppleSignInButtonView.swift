@@ -14,10 +14,11 @@ public struct AppleSignInButtonView: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    @ObservedObject var viewModel = AuthViewModel()
-    
-    public init(token: Binding<String?>) {
+    @StateObject var viewModel: AuthViewModel
+    public init(token: Binding<String?>, viewModel: AuthViewModel) {
         _token = token
+        // 初始化 @StateObject
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     public var body: some View {
@@ -44,7 +45,6 @@ public struct AppleSignInButtonView: View {
         }
         .padding()
         .onChange(of: viewModel.token) { oldValue, newValue in
-            
             self.token = newValue // 绑定 ViewModel 中的 token 到外部视图的 token
         }
     }
@@ -67,6 +67,6 @@ public struct AppleSignInButtonView: View {
 
 
 #Preview {
-    AppleSignInButtonView(token: .constant(""))
+    AppleSignInButtonView(token: .constant(""), viewModel: AuthViewModel())
 }
 
